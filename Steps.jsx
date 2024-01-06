@@ -151,7 +151,11 @@ console.log(formik.errors)
   {formik.errors.channel ? (<div className='error'>{formik.errors.channel}</div>): null}
 </div>
 
-//  ===== Video -   =====
+//  ===== Video - 9 =====
+
+console.log('Visited fiels', formik.touched)
+
+<input onBlur={formik.handleBlur}/>
 
 //  ===== Video -   =====
 

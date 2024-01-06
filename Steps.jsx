@@ -1,4 +1,4 @@
-//  ===== Video - 3 =====
+//  ===== Video - 3 -useForm Hook =====
 
 import { useFormik } from "formik";
 
@@ -23,7 +23,7 @@ function OldYoutubeForm() {
 
 export default OldYoutubeForm;
 
-//  ===== Video - 4 =====
+//  ===== Video - 4 - manage Form State =====
 
 const formik = useFormik({
   initialValues: {
@@ -39,7 +39,7 @@ console.log(formik.values); // returns info as objects
 <input type="email" id="email" name="email" onChange={formik.handleChange} value={formik.values.email}/>
 <input type="text" id="channel" name="channel" onChange={formik.handleChange} value={formik.values.channel}/>
 
-//  ===== Video - 5 =====
+//  ===== Video - 5 - Handle Form Submission =====
 
 const formik = useFormik({
   initialValues: {
@@ -56,7 +56,7 @@ const formik = useFormik({
 
 </form>
 
-//  ===== Video - 7 =====
+//  ===== Video - 7 - Validation Func =====
 
 const formik = useFormik({
   initialValues: {
@@ -129,7 +129,27 @@ const formik = useFormik({
   
 });
 
-//  ===== Video -   =====
+//  ===== Video - 8 -  Display Error Msg =====
+
+console.log(formik.errors)
+
+// After input tag. Will show error if not found
+
+<div className='form-control'>
+  <label></label>
+  <input/>
+  {formik.errors.name ? (<div className='error'>{formik.errors.name}</div>): null}
+</div>
+<div className='form-control'>
+  <label></label>
+  <input/>
+  {formik.errors.email ? (<div className='error'>{formik.errors.email}</div>): null}
+</div>
+<div className='form-control'>
+  <label></label>
+  <input/>
+  {formik.errors.channel ? (<div className='error'>{formik.errors.channel}</div>): null}
+</div>
 
 //  ===== Video -   =====
 

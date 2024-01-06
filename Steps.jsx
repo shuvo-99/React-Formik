@@ -53,10 +53,81 @@ const formik = useFormik({
 });
 
 <form onSubmit={formik.handleSubmit}>
-  
+
 </form>
 
-//  ===== Video -   =====
+//  ===== Video - 7 =====
+
+const formik = useFormik({
+  initialValues: {
+    name: "",
+    email: "",
+    channel: "",
+  },
+  onSubmit: values => {
+    console.log(values) // // returns info as objects
+  },
+  validate: values => {
+    let errors = {}
+  
+    if (!value.name){
+      error.name = 'Require'
+    }
+
+    if (!values.email) {
+      errors.email = 'Required'
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Invalid email format'
+    }
+
+    if (!values.channel) {
+      errors.channel = 'Required'
+    }
+
+    return errors
+  }
+  
+});
+
+// ===== REFACTOR =====
+
+
+const initialValues = {
+  name: 'Vishwas',
+  email: '',
+  channel: ''
+}
+
+const onSubmit = values => {
+  console.log('Form data', values)
+}
+
+const validate = values => {
+  const errors = {}
+
+  if (!values.name) {
+    errors.name = 'Required'
+  }
+
+  if (!values.email) {
+    errors.email = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email format'
+  }
+
+  if (!values.channel) {
+    errors.channel = 'Required'
+  }
+
+  return errors
+}
+
+const formik = useFormik({
+  initialValues,
+  onSubmit,
+  validate
+  
+});
 
 //  ===== Video -   =====
 

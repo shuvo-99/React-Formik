@@ -194,7 +194,7 @@ const formik = useFormik({
     onBlur={formik.handleBlur}
     value={formik.values.channel}
   />
-  
+
 // With this line -
   <input 
     {... formik.getFieldProps('name')}
@@ -206,7 +206,64 @@ const formik = useFormik({
     {... formik.getFieldProps('channel')}
   />
 
-//  ===== Video -   =====
+//  ===== Video - 13 Refactor (Formik Component) =====
+
+import {Formik} from 'formik' // replace useFormik
+
+const validationSchema = Yup.object({
+  name: Yup.string().required('Required'),
+  email: Yup.string()
+    .email('Invalid email format')
+    .required('Required'),
+  channel: Yup.string().required('Required')
+})
+
+const initialValues = {
+  name: 'Vishwas',
+  email: '',
+  channel: ''
+}
+
+const onSubmit = values => {
+  console.log('Form data', values)
+}
+
+//remove formik function
+
+
+// inside return replace div with Formik
+
+function OldYoutubeForm() {
+  const formik = useFormik({});
+
+  return (
+    <Formik
+      initialValues = {initialValues}
+      onSubmit = {onSubmit}
+      validationSchema = {validationSchema}
+      >
+      <form onSubmit={formik.handleSubmit}>
+        <div className='form-control'>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" name="name" {... formik.getFieldProps('name')}/>
+          {formik.touched.name && formik.errors.name ? (<div className='error'>{formik.errors.name}</div>): null}
+        </div>
+        <div className='form-control'>
+          <label htmlFor="email">E-mail</label>
+          <input type="email" id="email" name="email" {... formik.getFieldProps('email')}/>
+          {formik.touched.name && formik.errors.email ? (<div className='error'>{formik.errors.email}</div>): null}
+        </div>
+        <div className='form-control'>
+          <label htmlFor="channel">Channel</label>
+          <input type="text" id="channel" name="channel" {... formik.getFieldProps('channel')}/>
+          {formik.touched.name && formik.errors.channel ? (<div className='error'>{formik.errors.channel}</div>): null}
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </Formik>
+  );
+}
 
 //  ===== Video -   =====
 

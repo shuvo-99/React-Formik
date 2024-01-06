@@ -151,13 +151,17 @@ console.log(formik.errors)
   {formik.errors.channel ? (<div className='error'>{formik.errors.channel}</div>): null}
 </div>
 
-//  ===== Video - 9 =====
+//  ===== Video - 9 Visited fields =====
 
 console.log('Visited fiels', formik.touched)
 
-<input onBlur={formik.handleBlur}/>
+<input onBlur={formik.handleBlur}/> // Add this in input
 
-//  ===== Video -   =====
+//  ===== Video - 10 Improve validation UX =====
+
+{formik.touched.name && formik.errors.name ? (<div className='error'>{formik.errors.name}</div>): null}
+{formik.touched.name && formik.errors.email ? (<div className='error'>{formik.errors.email}</div>): null}
+{formik.touched.name && formik.errors.channel ? (<div className='error'>{formik.errors.channel}</div>): null}
 
 //  ===== Video -   =====
 

@@ -41,6 +41,21 @@ console.log(formik.values); // returns info as objects
 
 //  ===== Video - 5 =====
 
+const formik = useFormik({
+  initialValues: {
+    name: "",
+    email: "",
+    channel: "",
+  },
+  onSubmit: values => {
+    console.log(values) // // returns info as objects
+  }
+});
+
+<form onSubmit={formik.handleSubmit}>
+  
+</form>
+
 //  ===== Video -   =====
 
 //  ===== Video -   =====

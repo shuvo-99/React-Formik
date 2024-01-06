@@ -1,8 +1,7 @@
-# React + Vite
+# Playlist Link - [Codevolution](https://www.youtube.com/playlist?list=PLC3y8-rFHvwiPmFbtzEWjESkqBVDbdgGu)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Install -
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- npm install formik --save
+  OR
+- yarn add formik

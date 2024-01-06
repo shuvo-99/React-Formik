@@ -1,4 +1,4 @@
-//  ===== Video - 3  =====
+//  ===== Video - 3 =====
 
 import { useFormik } from "formik";
 
@@ -23,9 +23,23 @@ function OldYoutubeForm() {
 
 export default OldYoutubeForm;
 
-//  ===== Video -   =====
+//  ===== Video - 4 =====
 
-//  ===== Video -   =====
+const formik = useFormik({
+  initialValues: {
+    name: "",
+    email: "",
+    channel: "",
+  },
+});
+
+console.log(formik.values); // returns info as objects
+
+<input type="text" id="name" name="name" onChange={formik.handleChange} value={formik.values.name}/>
+<input type="email" id="email" name="email" onChange={formik.handleChange} value={formik.values.email}/>
+<input type="text" id="channel" name="channel" onChange={formik.handleChange} value={formik.values.channel}/>
+
+//  ===== Video - 5 =====
 
 //  ===== Video -   =====
 

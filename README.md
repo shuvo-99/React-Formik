@@ -5,3 +5,4 @@ Install -
 - npm install formik --save
   OR
 - yarn add formik
+- npm install -S yup

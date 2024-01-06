@@ -163,7 +163,28 @@ console.log('Visited fiels', formik.touched)
 {formik.touched.name && formik.errors.email ? (<div className='error'>{formik.errors.email}</div>): null}
 {formik.touched.name && formik.errors.channel ? (<div className='error'>{formik.errors.channel}</div>): null}
 
-//  ===== Video -   =====
+//  ===== Video - 10 Alternate validate (Schema valid with Yup) =====
+
+// install yup
+import * as Yup from 'yup'
+
+// It replaces the validate function
+
+const validationSchema = Yup.object({
+  name: Yup.string().required('Required'),
+  email: Yup.string()
+    .email('Invalid email format')
+    .required('Required'),
+  channel: Yup.string().required('Required')
+})
+
+const formik = useFormik({
+  initialValues,
+  onSubmit,
+  validationSchema
+  // validate
+  
+});
 
 //  ===== Video -   =====
 

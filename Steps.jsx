@@ -163,7 +163,7 @@ console.log('Visited fiels', formik.touched)
 {formik.touched.name && formik.errors.email ? (<div className='error'>{formik.errors.email}</div>): null}
 {formik.touched.name && formik.errors.channel ? (<div className='error'>{formik.errors.channel}</div>): null}
 
-//  ===== Video - 10 Alternate validate (Schema valid with Yup) =====
+//  ===== Video - 11 Alternate validate (Schema valid with Yup) =====
 
 // install yup
 import * as Yup from 'yup'
@@ -186,7 +186,25 @@ const formik = useFormik({
   
 });
 
-//  ===== Video -   =====
+//  ===== Video - 12 - Refactor =====
+
+// Replace these 3 lines for each input fields for reducing repitition -
+  <input 
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.channel}
+  />
+  
+// With this line -
+  <input 
+    {... formik.getFieldProps('name')}
+  />
+  <input 
+    {... formik.getFieldProps('email')}
+  />
+  <input 
+    {... formik.getFieldProps('channel')}
+  />
 
 //  ===== Video -   =====
 
